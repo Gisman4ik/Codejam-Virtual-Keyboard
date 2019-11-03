@@ -99,15 +99,7 @@
   grid-column: 13/15;
 }
 
-.value-upper {
-  display: none;
-}
-
-.value-eng {
-  display: block;
-}
-
-.value-ru {
+.hide {
   display: none;
 }
 
