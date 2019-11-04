@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function keyboradFeatures () {
   const eventOnPress = (textarea, button) => {
     if (button.id === 'CapsLock') {
       capslockEvent();
+      return;
     }
 
     if (button.id ==='Space') {
