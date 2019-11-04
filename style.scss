@@ -92,3 +92,13 @@
     transition: 0.15s;
     background: linear-gradient(#3C3B3F,#605C3C);
 }
+
+.keyBtn_space.active-key,
+.keyBtn_backspace.active-key,
+.keyBtn_enter.active-key,
+.keyBtn_cmd.active-key,
+.keyBtn_capslock.active-key,
+.keyBtn_leftShift.active-key,
+.keyBtn_rightShift.active-key {
+  border-radius: 5px;
+}
