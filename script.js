@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function keyboradFeatures () {
   let keyBtnsRU = document.querySelectorAll('.value-ru');
   let keyBtnsENG = document.querySelectorAll('.value-eng');
   const textarea = document.querySelector('.textarea');
+  let keyBtns = document.querySelectorAll('.keyBtn');
   const capslockEvent = ()=>{
     if (symbolCase === "Lower") {
       symbolCase = "Upper";
@@ -217,12 +218,15 @@ document.addEventListener('DOMContentLoaded', function keyboradFeatures () {
       }
     }
   }
+
+  keyBtns.forEach((key)=>{
+    key.addEventListener('mousedown', keyHandler);
+    key.addEventListener('mouseup', keyHandler);
+    key.addEventListener('mouseout', keyHandler);
+  })
   document.addEventListener('keydown', shiftChange);
   document.addEventListener('keyup', shiftChange);
   document.addEventListener('keydown', languageChange);
   document.addEventListener('keydown', keyHandler);
   document.addEventListener('keyup', keyHandler);
-  document.querySelector('.keyboard').addEventListener('mousedown', keyHandler);
-  document.querySelector('.keyboard').addEventListener('mouseup', keyHandler);
-  document.querySelector('.keyboard').addEventListener('mouseout', keyHandler);
 });
