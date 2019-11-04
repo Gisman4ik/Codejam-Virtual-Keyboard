@@ -1,38 +1,38 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  .wrapper{
+.wrapper{
     margin: 0 auto;
     font-family: "Roboto","Segoe UI","Tahoma, sans-serif";
-  }
+}
 
-  .textarea {
+.textarea {
     margin: 30px auto;
     display: block;
     width: 820px;
     height: 300px;
     padding: 15px;
-  }
+}
 
-  .keyboard {
+.keyboard {
     margin: 0 auto;
     width: 820px;
     display: grid;
     grid-template: repeat(5, 50px) / repeat(15, 50px);
     grid-gap: 5px;
-    background: rgb(100, 100, 100);
-  }
+    border-radius: 5px;
+}
 
-  .value {
+.value {
     display: block;
     height: 50px;
     width: 50px;
-  }
+}
 
-  .keyBtn {
+.keyBtn {
     background-color: #3a424e;
     border: 1px solid black;
     border-radius: 10%;
@@ -48,41 +48,47 @@
 
     &_backspace {
       grid-column: 14/16;
+      border-radius: 5px;
     }
 
     &_enter {
       grid-column: 14/16;
       grid-row: 2/4;
-      border-radius: 0;
+      border-radius: 5px;
     }
 
     &_capslock {
       grid-column: 1/3;
+      border-radius: 5px;
     }
 
     &_leftShift {
       grid-column: 1/3;
+      border-radius: 5px;
     }
 
     &_rightShift {
       grid-column: 14/16;
+      border-radius: 5px;
     }
 
     &_space {
       grid-column: 4/12;
-      border-radius: 0;
+      border-radius: 5px;
     }
 
-    &_fn {
+    &_cmd {
       grid-column: 13/15;
+      border-radius: 5px;
     }
-  }
+}
 
-  .hide {
+.hide {
     display: none;
-  }
+}
 
-  .active-key{
+.active-key{
     border-radius: 50%;
-    background-color: blue;
-  }
+    transition: 0.15s;
+    background: linear-gradient(#3C3B3F,#605C3C);
+}
