@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function htmlStructureLoad() {
   const wrapper = document.createElement('div');
   const textarea = document.createElement('textarea');
   const keyboard = document.createElement('div');
+  if (localStorage.language === undefined) {
+    localStorage.setItem('language', 'ENG');
+  }
   const createKeyBtn = (classKey) => {
     const keyBtn = document.createElement('div');
     keyBtn.classList.add(classKey);
@@ -79,9 +82,6 @@ document.addEventListener('DOMContentLoaded', function htmlStructureLoad() {
   document.querySelector('.wrapper').append(textarea, keyboard);
 });
 document.addEventListener('DOMContentLoaded', function keyboradFeatures() {
-  if (localStorage.language === undefined) {
-    localStorage.setItem('language', 'ENG');
-  }
   let symbolCase = 'Lower';
   let keyBtnsRU = document.querySelectorAll('.value-ru');
   let keyBtnsENG = document.querySelectorAll('.value-eng');
