@@ -49,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function htmlStructureLoad() {
       keyboard.append(btn);
 
       btn.append(createSpan('value-ru'));
-      btn.childNodes[0].classList.add('hide');
+      if (localStorage.language === 'ENG') {
+        btn.childNodes[0].classList.add('hide');
+      }
       btn.childNodes[0].append(createSpan('value-lower'));
       btn.childNodes[0].childNodes[0].append(keysValueRuLower[counter]);
       btn.childNodes[0].append(createSpan('value-upper'));
@@ -57,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function htmlStructureLoad() {
       btn.childNodes[0].childNodes[1].append(keysValueRuUpper[counter]);
 
       btn.append(createSpan('value-eng'));
+      if (localStorage.language === 'RU') {
+        btn.childNodes[1].classList.add('hide');
+      }
       btn.childNodes[1].append(createSpan('value-lower'));
       btn.childNodes[1].childNodes[0].append(keysValueEngLower[counter]);
       btn.childNodes[1].append(createSpan('value-upper'));
@@ -74,7 +79,9 @@ document.addEventListener('DOMContentLoaded', function htmlStructureLoad() {
   document.querySelector('.wrapper').append(textarea, keyboard);
 });
 document.addEventListener('DOMContentLoaded', function keyboradFeatures() {
-  let language = 'ENG';
+  if (localStorage.language === undefined) {
+    localStorage.setItem('language', 'ENG');
+  }
   let symbolCase = 'Lower';
   let keyBtnsRU = document.querySelectorAll('.value-ru');
   let keyBtnsENG = document.querySelectorAll('.value-eng');
@@ -123,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function keyboradFeatures() {
       || button.id === 'AltRight' || button.id === 'ContextMenu' || button.id === 'ControlRight') {
       return undefined;
     }
-    if (language === 'ENG') {
+    if (localStorage.language === 'ENG') {
       if (symbolCase === 'Lower') {
         let symbol = button.childNodes[1].childNodes[0].innerText;
         return `${textarea.value}${symbol}`;
@@ -133,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function keyboradFeatures() {
         return `${textarea.value}${symbol}`;
       }
     }
-    if (language === 'RU') {
+    if (localStorage.language === 'RU') {
       if (symbolCase === 'Lower') {
         let symbol = button.childNodes[0].childNodes[0].innerText;
         return `${textarea.value}${symbol}`;
@@ -190,8 +197,8 @@ document.addEventListener('DOMContentLoaded', function keyboradFeatures() {
   };
   const languageChange = (event) => {
     if (event.altKey && event.ctrlKey) {
-      if (language === 'RU') {
-        language = 'ENG';
+      if (localStorage.language === 'RU') {
+        localStorage.setItem('language', 'ENG');
         keyBtnsRU.forEach((node) => {
           node.classList.add('hide');
         });
@@ -199,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function keyboradFeatures() {
           node.classList.remove('hide');
         });
       } else {
-        language = 'RU';
+        localStorage.setItem('language', 'RU');
         keyBtnsENG.forEach((node) => {
           node.classList.add('hide');
         });
