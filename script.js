@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function keyboradFeatures() {
     if (button.id === 'Backspace') {
       const size = textarea.value.length;
       if (size > 1) return textarea.value.slice(0, size - 1);
-      return undefined;
+      return '';
     }
     if (button.id === 'Tab' || button.id === 'ControlLeft' || button.id === 'AltLeft'
       || button.id === 'ShiftLeft' || button.id === 'MetaLeft' || button.id === 'ShiftRight'
